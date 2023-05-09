@@ -1,5 +1,5 @@
 package miHangar;
 
-public class Tre {
+public class Tie {
 
 }
