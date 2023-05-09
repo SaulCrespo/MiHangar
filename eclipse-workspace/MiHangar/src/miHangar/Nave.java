@@ -53,4 +53,8 @@ public abstract class Nave {
 	public double getTasa() {
 		return flota.getTasa();
 	}
+	
+	public String toString() {
+		
+	}
 }

@@ -14,7 +14,6 @@ public class Tie extends Nave {
 		this.cilindrada = cilindrada;
 	}
 	
-	
 	public float getCilindrada() {
 		return cilindrada;
 	}
