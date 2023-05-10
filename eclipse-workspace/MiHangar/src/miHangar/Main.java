@@ -57,32 +57,33 @@ public class Main {
 	}
 
 	private static void addNave(Map<String, Nave> lista, BufferedReader br) throws IOException {
-		String[] data = new String[4];
-		System.out.print("Introduzca tipo de nave: ");
-		data[0] = br.readLine();
+		String[] data = new String[2];
+		boolean run = true;
 		System.out.print("Introduzca matricula de la nave: ");
-		data[1] = br.readLine();
+		data[0] = br.readLine();
 		System.out.print("Introduzca flota de la nave: ");
-		data[2] = br.readLine();
-		try {
-			switch(data[0].toLowerCase().charAt(0)) {
-				case 'w' -> {
-					System.out.print("Introduzca numero de motores: ");
-					data[3] = br.readLine();
-					lista.put(data[1], new Wing(data[1], data[2], Integer.parseInt(data[3])));
+		data[1] = br.readLine();
+		while (run) {
+			try {
+				System.out.println("Introduzca tipo de nave: ");
+				switch(br.readLine().toLowerCase().charAt(0)) {
+					case 'w' -> {
+						System.out.print("Introduzca numero de motores: ");
+						
+						lista.put(data[0], new Wing(data[0], data[1].startsWith("s"), Integer.parseInt(br.readLine())));
+						run = false;
+					}
+					case 't' -> {
+						System.out.print("Introduzca Cilindrada: ");
+						lista.put(data[0], new Tie(data[0], data[1].startsWith("s"), Float.parseFloat(br.readLine())));
+						run = false;
+					}
+					default -> System.out.println("Tipo de nave no reconocida.");
 				}
-				case 't' -> {
-					System.out.print("Introduzca Cilindrada: ");
-					data[3] = br.readLine();
-					lista.put(data[1], new Tie(data[1], data[2], Float.parseFloat(data[3])));
-				}
-				default -> System.out.println("Tipo de nave no reconocida.");
+				
+			} catch (Exception e) {
+				System.out.println("Ha habido un error.");
 			}
-		} catch (Exception e) {
-			System.out.println("Ha habido un error.");
 		}
-		
-		
-	
 	}
 }

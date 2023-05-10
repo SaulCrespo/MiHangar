@@ -9,8 +9,8 @@ public class Tie extends Nave {
 		this.cilindrada = 0.0f;
 	}
 	
-	public Tie(String matricula, String flota, float cilindrada) {
-		super(matricula, flota);
+	public Tie(String matricula, boolean imperio, float cilindrada) {
+		super(matricula, imperio);
 		this.cilindrada = cilindrada;
 	}
 	
@@ -24,6 +24,8 @@ public class Tie extends Nave {
 	
 	@Override
 	public String toString() {
-		return "Tie Fighter de la flota: " + flota.getFlota() +  "con matricula: " + matricula + " y cilindrada de " + cilindrada + ".";
+		return "Tie Fighter de la flota: " + ((imperio)? "imperial ": "de la república ") +  "con matricula: " + matricula + " y cilindrada de " + cilindrada + ".";
 	}
+
+	
 }

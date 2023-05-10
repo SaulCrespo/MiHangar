@@ -1,38 +1,16 @@
 package miHangar;
 
-public abstract class Nave {
+public abstract class Nave implements Tasas {
 	protected String matricula;
-	protected Flota flota;
+	protected boolean imperio;
 	
-	protected enum Flota  {
-		IMPERIO(0.5, "Imperio"),
-		REPUBLICA(0.75, "Republica");
-		
-		private double tasa;
-		private String flota;
-		
-		Flota(double tasa, String flota) {
-			setTasa(tasa);
-			this.flota = flota;
-		}
-		public double getTasa() {
-			return tasa;
-		}
-		public void setTasa(double tasa) {
-			this.tasa = tasa;
-		}
-		
-		public String getFlota() {
-			return flota;
-		}
-	}
 	
 	protected Nave() {
 		matricula = "0000AAA";
-		this.flota = Flota.IMPERIO;
+		imperio = true;
 	}
 	
-	protected Nave(String matricula, String flota) {
+	protected Nave(String matricula, boolean imperio) {
 		this.matricula = matricula;
 	}
 	
@@ -44,19 +22,15 @@ public abstract class Nave {
 		this.matricula = matricula;
 	}
 
-	public Flota getFlota() {
-		return flota;
+	public boolean getImperio() {
+		return imperio;
 	}
 
-	public void setFlota(Flota flota) {
-		this.flota = flota;
+	public void setImperio(boolean imperio) {
+		this.imperio = imperio;
 	}
 	
-	public void setFlota(String flota) {
-		this.flota = (flota.toLowerCase().charAt(0) == 'i')? Flota.IMPERIO: Flota.REPUBLICA;
-	}
-	
-	public double getTasa() {
-		return flota.getTasa();
+	public double getTasa(double importe) {
+		return (imperio)? importe + importe * IMPERIO : importe + importe * REPUBLICA;
 	}
 }
