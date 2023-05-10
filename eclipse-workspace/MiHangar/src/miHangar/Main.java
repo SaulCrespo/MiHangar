@@ -27,21 +27,33 @@ public class Main {
 					case 2 -> listarNaves(misNaves);
 					case 3 -> eliminarNave(misNaves,br);
 				}
-			} catch (NumberFormatException  | IOException e) {
-				System.out.println("Opción no válida");
+			} catch (NumberFormatException e) {
+				System.out.println("Opción no válida.");
+			} catch (IOException e) {
+				System.out.println("Ha habido un error.");
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
 			}
-			
 		} while (opcion != 0);
 	}
 
-	private static Object eliminarNave(Map<String, Nave> misNaves, BufferedReader br) {
-		// TODO Auto-generated method stub
-		return null;
+	private static Nave eliminarNave(Map<String, Nave> misNaves, BufferedReader br) throws Exception {
+		System.out.print("Introduzca la matricula de la nave que desea eliminar: ");
+		String matricula = br.readLine();
+		if(misNaves.keySet().contains(matricula)) {
+			return misNaves.remove(matricula);
+		} else {
+			throw new Exception("La nave no se encuentra en el hangar");
+		}
+		
 	}
 
-	private static Object listarNaves(Map<String, Nave> misNaves) {
-		// TODO Auto-generated method stub
-		return null;
+	private static String listarNaves(Map<String, Nave> misNaves) {
+		String temp = "Lista de naves:";
+		for (String s: misNaves.keySet()) {
+			temp += "\n" + misNaves.get(s);
+		}
+		return temp;
 	}
 
 	private static void addNave(Map<String, Nave> lista, BufferedReader br) throws IOException {
