@@ -20,4 +20,9 @@ public class Wing extends Nave {
 	public void setMotores(int motores) {
 		this.motores = motores;
 	}
+	
+	@Override
+	public String toString() {
+		return "Wing Fighter de la flota: " + flota.getFlota() +  "con matricula: " + matricula + " y " + motores + " motores.";
+	}
 }

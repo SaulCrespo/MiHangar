@@ -19,6 +19,7 @@ public class Main {
 					"3) Ver naves\n" +
 					"4) Salir");
 			try {
+				
 				opcion = Integer.parseInt(br.readLine());
 			} catch (NumberFormatException  | IOException e) {
 				System.out.println("Opción no válida");

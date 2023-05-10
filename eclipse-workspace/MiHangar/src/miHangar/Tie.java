@@ -21,4 +21,9 @@ public class Tie extends Nave {
 	public void setCilindrada(float cilindrada) {
 		this.cilindrada = cilindrada;
 	}
+	
+	@Override
+	public String toString() {
+		return "Tie Fighter de la flota: " + flota.getFlota() +  "con matricula: " + matricula + " y cilindrada de " + cilindrada + ".";
+	}
 }

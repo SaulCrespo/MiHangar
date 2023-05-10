@@ -4,20 +4,26 @@ public abstract class Nave {
 	protected String matricula;
 	protected Flota flota;
 	
-	private enum Flota  {
-		IMPERIO(0.5),
-		REPUBLICA(0.75);
+	protected enum Flota  {
+		IMPERIO(0.5, "Imperio"),
+		REPUBLICA(0.75, "Republica");
 		
 		private double tasa;
+		private String flota;
 		
-		Flota(double tasa) {
-			this.setTasa(tasa);
+		Flota(double tasa, String flota) {
+			setTasa(tasa);
+			this.flota = flota;
 		}
 		public double getTasa() {
 			return tasa;
 		}
 		public void setTasa(double tasa) {
 			this.tasa = tasa;
+		}
+		
+		public String getFlota() {
+			return flota;
 		}
 	}
 	
@@ -52,9 +58,5 @@ public abstract class Nave {
 	
 	public double getTasa() {
 		return flota.getTasa();
-	}
-	
-	public String toString() {
-		
 	}
 }
